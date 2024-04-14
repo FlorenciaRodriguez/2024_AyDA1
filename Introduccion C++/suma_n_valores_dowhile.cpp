@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
-int main() {
+int main() 
+{
     int numero = 0;
     int suma = 0;
     cout << "Ingrese numeros (ingrese 0 para terminar):\n";
