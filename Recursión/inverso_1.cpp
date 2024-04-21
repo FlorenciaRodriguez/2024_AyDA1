@@ -34,7 +34,7 @@ int main()
     cout<<"Numero\t Llamados recursivos\t log 10 (numero)\tCantidad de digitos \n";
     int recursiones=0;
     int valorAInvertir = 97812465;
-    int digitos = numCifrasRecursivo (valorAInvertir);
+    int digitos = numCifrasRecursivo (valorAInvertir); // Opcion: digitos = ceil(log10(valorAInvertir));
     int valorInverso = calcularInversoRecursivo (valorAInvertir, digitos,recursiones);
     cout << valorAInvertir << "\t" << recursiones <<"\t\t\t"<<ceil(log10(valorAInvertir))<<"\t\t"<<digitos<<endl;
     recursiones=0;
