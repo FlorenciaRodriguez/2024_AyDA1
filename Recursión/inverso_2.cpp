@@ -8,7 +8,7 @@ using namespace std;
 
 int calcularInversoRecursivo (int coeficiente, int& grado, int& recursiones)
 {
-    if (coeficiente < 10)
+    if (coeficiente < BASE)
     {
       grado++;
       recursiones++;
@@ -16,7 +16,7 @@ int calcularInversoRecursivo (int coeficiente, int& grado, int& recursiones)
     }
     else
     {
-      int aux = calcularInversoRecursivo (coeficiente/10, grado,recursiones) + coeficiente%10 * pow(10,grado);
+      int aux = calcularInversoRecursivo (coeficiente/BASE, grado,recursiones) + coeficiente%BASE * pow(BASE,grado);
       grado++;
       recursiones++;
       return aux;
