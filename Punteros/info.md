@@ -86,3 +86,37 @@ void mostrarArreglo (const char arreglo[], unsigned int tamano) {
 ¿Cuándo utilizar el heap y cuando el stack?
 No hay una arregla general, pero se recomienda usar el _heap_ cuando se necesita asignar un gran bloque de memoria, por ejemplo, o una estructura demasiado grande para mantener una variable durante mucho tiempo.
 El _stack_ es mejor utilizarlo cuando se trabaja con variables relativamente pequeñas que solo se requieren mientras una función está viva, debido a que provee un acceso más fácil y rápido.
+
+## Ejemplo
+Un problema bastante trivial consiste en intercambiar los valores de dos variables. Para ello, creamos una variable "auxiliar" que almacena el valor de una de las variables de forma temporal.
+Si queremos intercambiar los valores de dos arreglos, podemos pensar en tener un arreglo temporal que nos almacene los valores de un arreglo. 
+```C++
+cargar_arreglo(arr1, MAX);
+cargar_arreglo(arr2, MAX);
+
+copiar_arreglo(aux, arr1, MAX); // Copia los valores de arr1 en aux. 
+copiar_arreglo(arr1, arr2, MAX);
+copiar_arreglo(arr2, aux, MAX);
+
+// No olvidar que si "pedimos" memoria al heap para aux, luego tenemos que "devolverla".
+
+//...
+```
+Podemos reducir el tiempo computacional si usamos punteros.
+
+```C++
+cargar_arreglo(arr1, MAX);
+cargar_arreglo(arr2, MAX);
+
+// Definirmos punteros para apuntar a la direccion de cada arreglo
+int *p_arr1 = arr1
+int *p_arr2 = arr2;
+int *p_aux;
+
+// Intercambiamos los punteros 
+p_aux = p_arr1;
+p_arr1 = p_arr2;
+p_arr2 = p_aux;
+
+// ...
+```
