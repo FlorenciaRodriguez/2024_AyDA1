@@ -2,9 +2,10 @@
 #ifndef Pila_H
 #define Pila_H
 
-class Pila {
+class Pila
+{
 public:
-    Pila(int n);
+    Pila();
     void apilar(int element);
     void desapilar();
     int getTope() const;
@@ -12,14 +13,15 @@ public:
     int getCantidad() const;
 
 private:
-int capacidad;
-//int *tope;
-int cantElementos;
-struct Nodo{
-    int elemento;
-    Nodo* siguiente;
-};
-Nodo* tope;
+    int capacidad;
+    // int *tope;
+    int cantElementos;
+    struct Nodo
+    {
+        int elemento;
+        Nodo *siguiente;
+    };
+    Nodo *tope;
 };
 
 #include "Pila.cpp"

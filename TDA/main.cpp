@@ -3,7 +3,7 @@
 #include <iostream>
 
 int main() {
-    Pila pila(5); 
+    Pila pila (); 
 
     pila.apilar(1);
     pila.apilar(2);

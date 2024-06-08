@@ -1,8 +1,7 @@
 #include "Pila.h"
 #include <cassert>
 
-// Constructor
-Pila::Pila(int n) : capacidad(n), cantElementos(0) {
+Pila::Pila(){ 
     //tope = new int[n];
     tope = nullptr;
     cantElementos=0;
