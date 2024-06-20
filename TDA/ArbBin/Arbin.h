@@ -1,45 +1,60 @@
 #ifndef ARBIN_H
 #define ARBIN_H
+#include <iostream>
 
 template <typename T>
-class Arbin {
+class Arbin{
 private:
 
-    class NodoArbol {
-        public:
-            NodoArbol(const T & elem, Arbin* l, Arbin* r): dato(elem), pizq(l), pder(r) {};
-            const T & obtener_dato() const {return dato;}
-            Arbin * obtener_izquierda() const {return pizq;}
-            Arbin * obtener_derecha() const {return pder;}
-        private:
-            T dato;
-            Arbin* pizq;
-            Arbin* pder;
+    class NodoArbin {
+    private:
+        T dato;
+        Arbin<T> * pizq;
+        Arbin<T> * pder;
+    public:
+        NodoArbin (const T & elem, Arbin<T> * izq, Arbin<T> * der)
+        {
+            dato = elem;
+            pizq = izq;
+            pder = der;
+        }
+        const T & getDato() const
+        {
+            return dato;
+        }
+        Arbin <T> * obtenerIzquierda () const
+        {
+            return pizq;
+        }
+        Arbin <T> * obtenerDerecha () const
+        {
+            return pder;
+        }
     };
-
-    void vaciar (Arbin* raiz);
+    NodoArbin * inicio;
+    void vaciar(Arbin<T> * arbol);
 
 public:
     Arbin();
-    virtual ~Arbin();
+    Arbin(const Arbin<T> & otro);
+    ~Arbin();
+    void construir ( Arbin<T>* izq, Arbin<T>* der, const T & dato);
 
-    Arbin(const Arbin& otroArbol);
-    void construir(Arbin* izq, Arbin* der, const T & dato);
+    const T & raiz () const;
+    Arbin<T>*  arbolIzquierdo() const;
+    Arbin<T>*  arbolDerecho() const;
 
-    const T & raiz() const ;
-    Arbin* arbol_izquierdo() const;
-    Arbin* arbol_derecho() const;
+    bool esVacio() const;
+    bool esHoja() const;
 
-    bool es_vacio() const;
-    bool es_hoja() const;
-
-    Arbin & operator= (const Arbin & otroArbol);
     int altura() const;
-    bool existe_elemento( T& elem) const;
+    bool existeElemento(const T& elem) const;
     int cantidadNodos () const;
-    int operator== (const Arbin<T>& otroArbol) const;
-private:
-    NodoArbol* inicio;
-};
 
+    bool operator== (const Arbin <T>& otro) const;
+    Arbin<T> &operator= (const Arbin <T>& otro);
+
+    void preOrden(std::ostream & salida) const;
+
+};
 #endif // ARBIN_H
