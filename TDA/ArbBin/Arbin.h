@@ -15,8 +15,8 @@ private:
         NodoArbin (const T& elem, Arbin<T>* izq , Arbin<T>* der)
         {
             dato = elem;
-            pizq = new Arbin<T>(*izq);
-            pder = new Arbin<T>(*der);
+            pizq = izq;
+            pder = der;
         }
 
         const T & getDato() const
