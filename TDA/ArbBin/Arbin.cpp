@@ -39,6 +39,7 @@ void Arbin<T>:: vaciar(Arbin<T> * a)
 template<typename T>
 void Arbin<T>::construir( Arbin<T>* izq, Arbin<T>* der, const T & dato)
 {
+    vaciar(this);
     Arbin<T> * i = new Arbin<T>(*izq);
     Arbin<T> * d = new Arbin<T>(*der);
     this->inicio = new NodoArbin(dato,i,d);
@@ -128,6 +129,7 @@ bool Arbin<T>::operator== (const Arbin<T>& otroArbol)const
 template<typename T>
 Arbin<T> & Arbin<T>::operator= (const Arbin<T> & otro)
 {
+    vaciar(this);
     if (otro.inicio == NULL)
         inicio = NULL;
     else
