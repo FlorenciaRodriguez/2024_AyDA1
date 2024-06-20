@@ -4,8 +4,8 @@ using namespace std;
 
 std::ostream & operator << (std::ostream & salida, Arbin<int> & arbol)
 {
-    arbol.preOrden(salida);
-    return salida;
+    	arbol.preOrden(salida); // Usamos arbol. porque arbol no es puntero. Si lo fuera, usamos arbol->
+    	return salida;
 }
 
 int main()
