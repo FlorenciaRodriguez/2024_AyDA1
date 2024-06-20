@@ -8,17 +8,9 @@ std::ostream & operator << (std::ostream & salida, Arbin<int> & arbol)
     return salida;
 }
 
-template <typename T>
-T getMax(T x, T y)
-{
-    if (x>y)
-        return x;
-    return y;
-}
-
 int main()
 {
-    Arbin<int>* a1= new Arbin<int>;
+    	Arbin<int>* a1= new Arbin<int>;
 	Arbin<int>* a2= new Arbin<int>;
 	Arbin<int>* a3= new Arbin<int>;
 	Arbin<int>* a11= new Arbin<int>;
@@ -46,19 +38,22 @@ int main()
 	cout << "True: " << a6->existeElemento(100) <<endl;
 	cout << "True: " << a6->existeElemento(5) <<endl;
 	if (a6 == a7)
-        cout << "a6 y a7 son iguales" <<endl;
+        	cout << "Comparacion por ==: a6 y a7 son iguales" <<endl;
+	if (a6 != a7)
+        	cout << "Comparacion por !=: a6 y a7 son distintos" <<endl;
 	if (!a5->esVacio())
-        cout << "a5 no es vacio" << endl;
-    if (a1->esVacio())
-        cout << "a1 es vacio" << endl;
-    if (a3->esHoja())
-        cout << "a3 es hoja" << endl;
-    if (!a6->esHoja())
-        cout << "a6 no es hoja" << endl;
-    if (!(a5 == a7))
-        cout << "a5 y a7 no son iguales" <<endl;
+        	cout << "a5 no es vacio" << endl;
+    	if (a1->esVacio())
+        	cout << "a1 es vacio" << endl;
+    	if (a3->esHoja())
+        	cout << "a3 es hoja" << endl;
+    	if (!a6->esHoja())
+        	cout << "a6 no es hoja" << endl;
+    	if (a5 == a7)
+        	cout << "a5 y a7 no son iguales" <<endl;
 
-    cout << "Recorrido pre orden del arbol a7: "<<endl;
-    cout << *a7;
-    return 0;
+    	cout << "Recorrido pre orden del arbol a7: "<<endl;
+    	cout << *a7;
+	
+    	return 0;
 }
