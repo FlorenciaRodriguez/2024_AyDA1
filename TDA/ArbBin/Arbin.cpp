@@ -11,6 +11,7 @@ Arbin<T>::Arbin()
 template<typename T>
 Arbin<T>::Arbin(const Arbin<T> & otro)
 {
+   incio = NULL;
    if (otro.inicio == NULL)
         inicio = NULL;
     else
