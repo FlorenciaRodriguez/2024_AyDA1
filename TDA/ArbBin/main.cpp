@@ -52,8 +52,20 @@ int main()
     	if (a5 == a7)
         	cout << "a5 y a7 no son iguales" <<endl;
 
-    	cout << "Recorrido pre orden del arbol a7: "<<endl;
-    	cout << *a7;
+    	cout << "Recorrido pre orden del arbol a6: "<<endl;
+    	cout << *a6;
 	
+	Arbin<int>* a7 = new Arbin<int> (*a6);
+	cout << "Recorrido pre orden del arbol a7: "<<endl;
+    	cout << *a7;
+	delete a7;
+
+	cout << "Recorrido pre orden del arbol a6: "<<endl;
+	cout<<*a6<<endl;
+	cout << "Cantidad de nodos de a7 (0): "<<a7->cantidadNodos()<<endl;
+	cout << "Cantidad de nodos de a6 (7): "<<a6->cantidadNodos()<<endl;
+	cout << "Cantidad de nodos de a5 (3): "<<a5->cantidadNodos()<<endl;
+    	cout << "Cantidad de nodos de a3 (1): "<<a3->cantidadNodos()<<endl;
+    	cout << "Cantidad de nodos de a1 (0): "<<a1->cantidadNodos()<<endl;
+
     	return 0;
-}
