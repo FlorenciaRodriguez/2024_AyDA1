@@ -4,13 +4,17 @@
 template<typename T>
 Arbin<T>::Arbin()
 {
+    //std::cout<< "Constructor vacio"<<std::endl;
     inicio = NULL;
 }
 
 template<typename T>
 Arbin<T>::Arbin(const Arbin<T> & otro)
 {
-    this->operator=(otro);
+   if (otro.inicio == NULL)
+        inicio = NULL;
+    else
+        inicio = copiar(otro);
 }
 
 template<typename T>
@@ -35,9 +39,10 @@ void Arbin<T>:: vaciar(Arbin<T> * a)
 template<typename T>
 void Arbin<T>::construir( Arbin<T>* izq, Arbin<T>* der, const T & dato)
 {
-    Arbin<T> * i = new Arbin(*izq);
-    Arbin<T> * d = new Arbin(*der);
-    inicio = new NodoArbin(dato,i,d);
+    Arbin<T> * i = new Arbin<T>(*izq);
+    Arbin<T> * d = new Arbin<T>(*der);
+    this->inicio = new NodoArbin(dato,i,d);
+
 }
 
 template <typename T>
@@ -126,7 +131,7 @@ Arbin<T> & Arbin<T>::operator= (const Arbin<T> & otro)
     if (otro.inicio == NULL)
         inicio = NULL;
     else
-        inicio = new NodoArbin(otro.inicio->getDato(),otro.inicio->obtenerIzquierda(),otro.inicio->obtenerDerecha());
+        inicio = copiar(otro);//new NodoArbin(otro.inicio->getDato(),otro.inicio->obtenerIzquierda(),otro.inicio->obtenerDerecha());
 }
 
 template <typename T>
@@ -136,8 +141,8 @@ void Arbin<T>::preOrden(std::ostream & salida) const {
          inicio->obtenerIzquierda()->preOrden(salida);
          inicio->obtenerDerecha()->preOrden(salida);
     }
-
 }
+
 
 template class Arbin<int>;
 template class Arbin<char>;
