@@ -11,7 +11,7 @@ Poligono::Poligono(int n)
 }
 
 double Poligono::costoTriangulacion() const {
-    assert(this->cantidad > 3 && !this->esConvexo() && !this->sentidoAntihorario());
+    assert(this->cantidad > 3 && this->esConvexo() && this->sentidoAntihorario());
 
     double ** c = new double*[this->cantidad-3];
     
@@ -93,7 +93,7 @@ bool Poligono::esConvexo() const {
         i++;
     }
 
-    return gotNegative;
+    return !gotNegative;
 }
 
 bool Poligono::sentidoAntihorario() const {
