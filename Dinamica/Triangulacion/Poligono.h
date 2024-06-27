@@ -12,6 +12,7 @@ private:
 public:
 
     Poligono(int n);
+    ~Poligono();
     void agregarPunto(const Punto & p);
 
     double costoTriangulacion() const;
