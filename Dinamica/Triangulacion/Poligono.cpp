@@ -10,11 +10,17 @@ Poligono::Poligono(int n)
     this->N=n;
 }
 
+Poligono::~Poligono()
+{
+    delete this->vertices;
+    this->cantidad=0;
+    this->N=0;
+}
+
 double Poligono::costoTriangulacion() const {
     assert(this->cantidad > 3 && this->esConvexo() && this->sentidoAntihorario());
 
     double ** c = new double*[this->cantidad-3];
-    
     
     for (int s = 4; s <= this->cantidad; s++)
     {
@@ -48,14 +54,14 @@ double Poligono::costoTriangulacion() const {
         }
 
     }
-    for (int i=0; i<this->cantidad-3; i++)
-    {
-        std::cout<<"\nSubproblemas "<<i+4<<" vertices"<<std::endl;
-        for (int j=0; j< this->cantidad; j++)
-            std::cout<<c[i][j] << " ";
+    double costo = c[this->cantidad-4][0];
+    
+    for (int i=0;i<this->cantidad-3;i++){
+        delete c[i];
     }
+    delete c;
 
-    return c[i][this->cantidad-4];
+    return costo;
 }
 
 int Poligono::getTotalVertices() const
