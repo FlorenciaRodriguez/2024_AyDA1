@@ -106,5 +106,5 @@ bool Poligono::sentidoAntihorario() const {
         sum += (next.getX() - current.getX()) * (next.getY() + current.getY());
     }
 
-    return sum < 0;
+    return sum > 0;
 }
