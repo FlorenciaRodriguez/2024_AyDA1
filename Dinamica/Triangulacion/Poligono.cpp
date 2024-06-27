@@ -13,60 +13,49 @@ Poligono::Poligono(int n)
 double Poligono::costoTriangulacion() const {
     assert(this->cantidad > 3 && !this->esConvexo() && !this->sentidoAntihorario());
 
-    double **m = new double*[this->N-2];
-    //int **t = new int*[this->N-2];
-    for (int j=4;j<=this->N;j++)
+    double ** c = new double*[this->cantidad-3];
+    
+    
+    for (int s = 4; s <= this->cantidad; s++)
     {
-        //std::cout<<"Subproblemas de tamaño "<<j<<std::endl;
-        m[j-4] = new double[this->N];
-        //t[j-4] = new int[this->N];
-        for (int i=0;i<N;i++)
+        c[s-4] = new double[this->cantidad];
+        for (int i=0; i< this->cantidad; i++)
         {
-            const Punto& pi = vertices[i];
-            const Punto& pj = vertices[(i+j-1)%this->N];
-            m[j-4][i] = MAX;
-            //std::cout<<"Vertice v"<<i<<std::endl;
-            //std::cout<<"Minimo entre: "<<std::endl;
-            for (int k=1;k<=j-2;k++)
+            int ultimo = (s+i-1)%this->cantidad;
+
+            const Punto & pi = this->vertices[i];
+            const Punto & ps = this->vertices[ultimo];
+            c[s-4][i] = MAX;
+
+            for (int k=1; k<= s-2; k++)
             {
-                const Punto& pk = vertices[(i+k)%this->N];
-                double c1=0,c2=0,d1=0,d2=0;
-                if (k+1>=4)
-                    c1=m[(1+k-4)%this->N][i];
-                    //std::cout<<"c["<<i<<"]["<<(1+k-4)%this->N<<"] + ";//<<std::endl;
-                if (j-k>=4)
-                    c2 = m[(j-k-4)%this->N][(i+k)%this->N];
-                    //std::cout<<"c["<<(i+k)%this->N<<"]["<<(j-k-4)%this->N<<"] + ";//<<std::endl;
-                if (k>1)
-                    d1=pi.getDistancia(pk);
-                    //std::cout<<"d(v"<<i<<";v"<<(i+k)%this->N<<") + ";//<<std::endl;
-                if (k+1<j-1)
-                    d2=pj.getDistancia(pk);
-                    //std::cout<<"d(v"<<(i+k)%this->N<<";v"<<(i+j-1)%this->N<<")"<<std::endl;
-                double costo_k = d1+d2+c1+c2;
-                //std::cout<<"k = "<<k<<" C: "<<costo_k<<std::endl;
-                if (m[j-4][i]>costo_k)
-                    m[j-4][i] = costo_k;
-                    //t[j-4][i] = k;
+                int x = (i+k)%this->cantidad;
+                const Punto & pk = this->vertices[x];
+
+                double c1 = (k+1>=4) ? c[k-3][i] : 0;
+                double c2 = (s-k>=4) ? c[s-k-4][x] : 0;
+                double d1 = (k!=1) ? pi.getDistancia(pk) : 0;
+                double d2 = (x != (ultimo-1) ) ? pk.getDistancia(ps) : 0;
+                double costo_k = c1 + c2 + d1 + d2;
+
+                if (costo_k < c[s-4][i])
+                {
+                    c[s-4][i] = costo_k;
+                }
+
             }
 
         }
 
     }
-    for (int i=0;i<=N-4;i++)
+    for (int i=0; i<this->cantidad-3; i++)
     {
-        for (int j=0;j<N;j++)
-            std::cout << m[i][j]<<" - ";
-        std::cout<<std::endl;
+        std::cout<<"\nSubproblemas tamanio "<<i+4<<std::endl;
+        for (int j=0; j< this->cantidad; j++)
+            std::cout<<c[i][j] << " ";
     }
-    /**
-    for (int i=0;i<=N-4;i++){
-        for (int j=0;j<N;j++)
-            std::cout << t[i][j]<<" - ";
-        std::cout<<std::endl;
-    }
-    **/
-    return 0;
+
+    return c[i][this->cantidad-4];
 }
 
 int Poligono::getTotalVertices() const
