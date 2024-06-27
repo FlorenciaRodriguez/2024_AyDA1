@@ -17,7 +17,21 @@ int main()
     p->agregarPunto(*v4);
     p->agregarPunto(*v5);
     p->agregarPunto(*v6);
-    p->costoTriangulacion();
+    double costo = p->costoTriangulacion();
+    delete v0;
+    delete v1;
+    delete v2;
+    delete v3;
+    delete v4;
+    delete v5;
+    delete v6;
+    v0=NULL;
+    v1=NULL;
+    v2=NULL;
+    v3=NULL;
+    v4=NULL;
+    v5=NULL;
+    v6=NULL;
 
     return 0;
 }
