@@ -50,7 +50,7 @@ double Poligono::costoTriangulacion() const {
     }
     for (int i=0; i<this->cantidad-3; i++)
     {
-        std::cout<<"\nSubproblemas tamanio "<<i+4<<std::endl;
+        std::cout<<"\nSubproblemas "<<i+4<<" vertices"<<std::endl;
         for (int j=0; j< this->cantidad; j++)
             std::cout<<c[i][j] << " ";
     }
