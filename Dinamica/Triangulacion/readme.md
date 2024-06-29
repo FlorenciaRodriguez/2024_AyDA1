@@ -129,6 +129,8 @@ Utilizamos matrices para reconstruir la solución óptima.
 
 ![](img/img5.png)
 
+![](img/img7.png)
+
 ![](img/img6.png)
 
 
