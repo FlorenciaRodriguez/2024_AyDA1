@@ -62,4 +62,152 @@ Utilizamos matrices para reconstruir la solución óptima.
 
 ![](img/img6.png)
 
+// Continuar 
 
+## Triangulación
+
+Para cada posición (i,s) de la tabla se necesita almacenar, además del costo, el valor del índice k que produjo el mínimo.
+
+Entonces la solución consta de las cuerdas (v<sub>i</sub>,v<sub>i+k</sub>) y (v<sub>i+k</sub>,v<sub>i+s-1</sub>) (a menos que una de ellas no sea cuerda, porque k=1 o k=s-2), más las cuerdas que generadas por las soluciones de S<sub>i,k+1</sub> y S<sub>i+k,s-k</sub>.
+
+## Alternativas de implementación
+
+1. Se puede utilizar una matriz de distancias D, en lugar de invocar al método getDistancia de la clase Punto.
+Entonces, las líneas siguientes:
+
+```cpp
+double d1 = (k!=1) ? pi.getDistancia(pk) : 0;
+double d2 = (x != (ultimo-1) ) ? pk.getDistancia(ps) : 0;
+```
+
+Son reemplazadas por:
+
+```cpp
+double d1 = (k != 1) ? D[i][k];
+double d2 = (x != (ultimo-1) ) ? D[k][s];
+```
+
+*Debate:*
+
+- El getDistancia tiene operaciones aritméticas complejas, como la ráiz cuadrada y la potencia. Pueden no ser del orden constante. En ese caso sería mejor la matriz.
+  
+- Al tener la matriz, no tenemos el costo espacial de los objetos de la clase Punto, p<sub>i</sub>, p<sub>k</sub> y p<sub>s</sub>, pero caemos en un costo espacial de almacenamiento de la matriz. Además del costo de inicialización.
+  
+- Al tener la matriz calculamos una sola vez la distancia entre dos puntos.
+
+# Código con matriz de distancias
+
+```cpp
+// Si hay varios llamados a la función, es más eficiente pasar la matriz por parámetro.
+// En este caso creamos la matriz dentro de la función porque la vamos a invocar una sola vez.
+// Complejidad O(n**2), donde n es la cantidad de vértices del polígono.
+int** Poligono::incializarDistancias () const
+{
+  D = new int*[this->cantidad];
+  for (int i = 0; i < this->cantidad; i++)
+  {
+    D[i] = new int [this->cantidad];
+    const Punto & pi = this->vertices[i];
+    for (int j = 0;j < this->cantidad; j++)
+      D[i][j] = ((i == j) || (i+1 == j)) ? 0 : pi.getDistancia(this->vertices[j]); 
+  }
+  return D;
+}
+
+double Poligono::costoTriangulacion() const{
+    
+    int ** D = incializarDistancias();
+    double ** c = new double*[this->cantidad-3];
+
+    for (int s = 4; s <= this->cantidad; s++)
+    {
+        c[s-4] = new double[this->cantidad];
+        for (int i=0; i< this->cantidad; i++)
+        {
+            int ultimo = (s+i-1)%this->cantidad;
+            c[s-4][i] = MAX;
+            for (int k=1; k<= s-2; k++)
+            {
+                int x = (i+k)%this->cantidad;
+                double c1 = (k+1>=4) ? c[k-3][i] : 0;
+                double c2 = (s-k>=4) ? c[s-k-4][x] : 0;
+                double d1 = (k!=1) ? D[i][s] : 0;
+                double d2 = (x != (ultimo-1) ) ? D[k][s] : 0;
+                double costo_k = c1 + c2 + d1 + d2;
+                if (costo_k < c[s-4][i])      
+                    c[s-4][i] = costo_k;
+            }
+        }
+    }
+    double costo = c[this->cantidad-4][0];
+
+    // se puede modularizar
+    int i = 0;
+    while (i<this->cantidad-3){
+        delete D[i];
+        delete c[i];
+        i++;
+    }
+    while (i<this->cantidad){
+        delete D[i];
+        i++;
+    }
+
+    delete c;
+    delete D;
+
+    return costo;
+}
+```cpp
+
+
+2. Se puede utilizar la matriz de costos de N * (N+1). Las filas menores a 4 deben tener 0:
+
+```cpp
+double Poligono::costoTriangulacion() const{
+    
+    double ** c = new double*[this->cantidad+1];
+
+    // Primeras tres filas de matriz de costos, con 0
+    for (int s = 0; s < 4; s++)
+    {
+      c[s] = new double[this->cantidad];
+      for (int i = 0; i< this->cantidad; i++)
+        c[s][i] = 0;
+    }
+
+    for (int s = 4; s <= this->cantidad; s++)
+    {    
+        c[s] = new double[this->cantidad];
+        for (int i=0; i< this->cantidad; i++)
+        {
+            const Punto & pi = this->vertices[i];
+            const Punto & ps = this->vertices[ultimo];
+            int ultimo = (s+i-1)%this->cantidad;
+            c[s][i] = MAX;
+            for (int k=1; k<= s-2; k++)
+            {
+                int x = (i+k)%this->cantidad;
+                const Punto & pk = this->vertices[x];
+                double c1 = c[k-3][i];
+                double c2 = c[s-k-4][x];
+                double d1 = (k!=1) ? pi.getDistancia(pk) : 0;
+                double d2 = (x != (ultimo-1) ) ? pk.getDistancia(ps) : 0;
+                double costo_k = c1 + c2 + d1 + d2;
+                if (costo_k < c[s][i])      
+                    c[s][i] = costo_k;
+            }
+        }
+    }
+    double costo = c[this->cantidad][0];
+
+    for (int i=0;i<=this->cantidad;i++){
+        delete c[i];
+    }
+    delete c;
+
+    return costo;
+}
+```cpp
+
+// Chequear tabla. Pegarla
