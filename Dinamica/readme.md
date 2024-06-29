@@ -15,7 +15,6 @@ i. primero calcula la solución óptima de cada subproblema.
 
 ii. utilizando dichas soluciones, encuentra soluciones a problemas de mayor tamaño.
 
-Las soluciones de los subproblemas deben ser almacenados en alguna estructura (por ejemplo, diccionarios), para poder ser utilizados posteriormente.
 
 Para evitar repetir calculo, usualmente se utiliza una matriz que se llena conforme las soluciones a los subproblemas son calculados. 
 Antes de resolver un subproblema *Q*, se chequea en la matriz para ver si ya se resolvió. Si no se resolvió, se resuelve. Si ya está resuelto, se recupera la solución, evitando recalcular. Antes de devolver la solución de *Q*, ésta se guarda.
@@ -71,3 +70,5 @@ Existe un enfoque alternativo al problema que a menudo ofrece la eficiencia de l
 Se mantiene una tabla con soluciones de subproblemas, pero la estructura de control porque completar la tabla se parece más al algoritmo recursivo. 
 Un algoritmo recursivo memorizado mantiene una entrada en una tabla para la solución cada subproblema. Cada entrada de la tabla contiene inicialmente un valor especial para indicar que la entrada aún no se ha completado. Cuando el subproblema se encuentra por primera vez como en algoritmos recursivos, la solución se calcula y luego se almacena en la tabla.
 
+// no olvidarme la bibliografia
+// revisar redacción
