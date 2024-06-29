@@ -100,7 +100,6 @@ double d2 = (x != (ultimo-1) ) ? D[k][s];
 ```cpp
 // Si hay varios llamados a la función, es más eficiente pasar la matriz por parámetro.
 // En este caso creamos la matriz dentro de la función porque la vamos a invocar una sola vez.
-// Complejidad O(n**2), donde n es la cantidad de vértices del polígono.
 int** Poligono::incializarDistancias () const
 {
   D = new int*[this->cantidad];
@@ -212,3 +211,5 @@ double Poligono::costoTriangulacion() const{
 // Revisar soluciones
 // Chequear tabla. Pegarla
 // Revisar ortografía
+// poner complejidades
+// avisar para que alguien revise esto
