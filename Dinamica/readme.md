@@ -1,7 +1,7 @@
 # Programación Dinámica
 
 La programación dinámica, como el método de divide y conquista, resuelve problemas combinando las soluciones de los subproblemas.
-La técnica divide y conquista, divide el problema en subproblemas separados, resuelve los subproblemas de forma recursiva y luego combina sus soluciones para resolver el problema original. Por el contrario, la programación dinámica se aplica cuando los subproblemas se superponen, es decir, cuando los subproblemas comparten subsubproblemas. Aplicado a situaciones de solapamiento de subproblemas, un algoritmo de divide y conquista resuelve repetidamente los subsubproblemas que se repiten.
+La técnica divide y conquista, divide el problema en subproblemas separados, resuelve los subproblemas de forma recursiva y luego combina sus soluciones para resolver el problema original. Por el contrario, la programación dinámica se aplica cuando los subproblemas se superponen, es decir, cuando los subproblemas comparten subsubproblemas. Aplicado a situaciones de solapamiento de subproblemas, un algoritmo de divide y conquista resuelve reiteradas veces los subsubproblemas que se repiten.
 
 
 En general, la programación dinámica se aplica a problemas que requieren soluciones algoritmicas de gran costo computacional. Mediante esta técnica, la solución óptima a un problema puede ser definida mediante soluciones óptimas a subproblemas de menor tamaño.
