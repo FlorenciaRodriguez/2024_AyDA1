@@ -87,9 +87,9 @@ double d1 = (k != 1) ? D[i][k];
 double d2 = (x != (ultimo-1) ) ? D[k][s];
 ```
 
-*Debate:*
+*Para analizar:*
 
-- El getDistancia tiene operaciones aritméticas complejas, como la ráiz cuadrada y la potencia. Pueden no ser del orden constante. En ese caso sería mejor la matriz.
+- El getDistancia tiene operaciones aritméticas complejas, como la raíz cuadrada y la potencia. Pueden no ser del orden constante. En ese caso sería mejor la matriz.
   
 - Al tener la matriz, no tenemos el costo espacial de los objetos de la clase Punto, p<sub>i</sub>, p<sub>k</sub> y p<sub>s</sub>, pero caemos en un costo espacial de almacenamiento de la matriz. Además del costo de inicialización.
   
@@ -158,7 +158,7 @@ double Poligono::costoTriangulacion() const{
 
     return costo;
 }
-```cpp
+```
 
 
 2. Se puede utilizar la matriz de costos de N * (N+1). Las filas menores a 4 deben tener 0:
@@ -208,6 +208,7 @@ double Poligono::costoTriangulacion() const{
 
     return costo;
 }
-```cpp
-
+```
+// Revisar soluciones
 // Chequear tabla. Pegarla
+// Revisar ortografía
