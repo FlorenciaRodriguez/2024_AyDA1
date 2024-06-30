@@ -56,7 +56,7 @@ double Poligono::costoTriangulacion() const {
     }
     double costo = c[this->cantidad-4][0];
     
-    for (int i=0;i<this->cantidad-3;i++){
+    for (int i=0;i<=this->cantidad-3;i++){
         delete c[i];
     }
     delete c;
