@@ -7,7 +7,7 @@ private:
     int N;
     Punto *vertices;
     int cantidad;
-    double crossProduct(const Punto &A, const Punto &B, const Punto &C) const;
+    double productoCruz(const Punto &A, const Punto &B, const Punto &C) const;
     bool esConvexo() const;
     bool sentidoAntihorario() const;
     void liberarMemoria(double **C, int n) const;
