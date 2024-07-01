@@ -1,19 +1,21 @@
 #ifndef POLIGONO_H
 #define POLIGONO_H
 #include "Punto.h"
-class Poligono {
+class Poligono
+{
 private:
     int N;
-    Punto* vertices;
+    Punto *vertices;
     int cantidad;
-    double crossProduct(const Punto& A, const Punto& B, const Punto& C) const;
+    double crossProduct(const Punto &A, const Punto &B, const Punto &C) const;
     bool esConvexo() const;
     bool sentidoAntihorario() const;
-public:
+    void liberarMemoria(double **C, int n) const;
 
+public:
     Poligono(int n);
     ~Poligono();
-    void agregarPunto(const Punto & p);
+    void agregarPunto(const Punto &p);
 
     double costoTriangulacion() const;
     int getTotalVertices() const;
