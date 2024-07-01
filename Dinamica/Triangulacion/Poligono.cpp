@@ -12,7 +12,7 @@ Poligono::Poligono(int n)
 
 Poligono::~Poligono()
 {
-    delete this->vertices;
+    delete[] this->vertices;
     this->cantidad = 0;
     this->N = 0;
 }
