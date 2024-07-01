@@ -63,6 +63,7 @@ double Poligono::costoTriangulacion() const
             }
         }
     }
+  
     double costo = C[nC - 1][0];
 
     liberarMemoria(C, nC);
