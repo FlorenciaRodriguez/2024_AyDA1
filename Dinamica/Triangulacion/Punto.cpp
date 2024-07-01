@@ -1,35 +1,35 @@
 #include "Punto.h"
 #include <math.h>
-#include<iostream>
+#include <iostream>
 Punto::Punto()
 {
-    this->x=0;
-    this->y=0;
+    this->x = 0;
+    this->y = 0;
 }
-Punto::Punto(const Punto & other)
+Punto::Punto(const Punto &other)
 {
-    this->x=other.getX();
-    this->y=other.getY();
+    this->x = other.getX();
+    this->y = other.getY();
 }
-Punto::Punto(double x,double y)
+Punto::Punto(double x, double y)
 {
-    this->x=x;
-    this->y=y;
+    this->x = x;
+    this->y = y;
 }
-bool Punto::operator== (const Punto& other) const
+bool Punto::operator==(const Punto &other) const
 {
-    return (this->getX()==other.getX())&&
-    (this->getY()==other.getY());
+    return (this->getX() == other.getX()) &&
+           (this->getY() == other.getY());
 }
-Punto &Punto::operator= (const Punto& otro)
+Punto &Punto::operator=(const Punto &otro)
 {
     this->setX(otro.getX());
     this->setY(otro.getY());
 }
 
-double Punto::getDistancia(const Punto& otro)const
+double Punto::getDistancia(const Punto &otro) const
 {
-    return sqrt(pow(this->getX()-otro.getX(),2)+pow(this->getY()-otro.getY(),2));
+    return sqrt(pow(this->getX() - otro.getX(), 2) + pow(this->getY() - otro.getY(), 2));
 }
 double Punto::getX() const
 {
@@ -41,10 +41,9 @@ double Punto::getY() const
 }
 void Punto::setX(double x)
 {
-    this->x=x;
-
+    this->x = x;
 }
 void Punto::setY(double y)
 {
-    this->y=y;
+    this->y = y;
 }
