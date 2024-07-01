@@ -120,7 +120,7 @@ bool Poligono::sentidoAntihorario() const
 void Poligono::liberarMemoria(double **C, int n) const
 {
     for (int i = 0; i < n; i++)
-        delete C[i];
-    delete C;
+        delete [] C[i];
+    delete [] C;
     C = NULL;
 }
