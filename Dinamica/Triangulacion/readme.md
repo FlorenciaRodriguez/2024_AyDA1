@@ -138,7 +138,6 @@ void Poligono::incializarDistancias(double ** D, int n) const
                           ? 0
                           : pi.getDistancia(this->vertices[j]);
     }
-    return D;
 }
 
 void liberarMemoria(double ** C, double ** D, int n) const
@@ -146,18 +145,18 @@ void liberarMemoria(double ** C, double ** D, int n) const
     int i = 0;
     while (i < n - 3)
     {
-        delete D[i];
-        delete C[i];
+        delete[] D[i];
+        delete[] C[i];
         i++;
     }
     while (i < n)
     {
-        delete D[i];
+        delete[] D[i];
         i++;
     }
 
-    delete C;
-    delete D;
+    delete[] C;
+    delete[] D;
     C = NULL;
     D = NULL;
 }
@@ -214,12 +213,12 @@ void Poligono::liberarMemoria(double ** C,double ** D, int n) const
 {
     for (int i=0;i<n;i++)
     {
-        delete C[i];
-        delete D[i];
+        delete[] C[i];
+        delete[] D[i];
     }
-    delete C[n];
-    delete C;
-    delete D;
+    delete[] C[n];
+    delete[] C;
+    delete[] D;
     C = NULL;
     D = NULL;
 }

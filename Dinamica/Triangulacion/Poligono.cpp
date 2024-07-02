@@ -12,7 +12,7 @@ Poligono::Poligono(int n)
 
 Poligono::~Poligono()
 {
-    delete this->vertices;
+    delete[] this->vertices;
     this->cantidad = 0;
     this->N = 0;
 }
@@ -63,6 +63,7 @@ double Poligono::costoTriangulacion() const
             }
         }
     }
+  
     double costo = C[nC - 1][0];
 
     liberarMemoria(C, nC);
@@ -119,7 +120,7 @@ bool Poligono::sentidoAntihorario() const
 void Poligono::liberarMemoria(double **C, int n) const
 {
     for (int i = 0; i < n; i++)
-        delete C[i];
-    delete C;
+        delete [] C[i];
+    delete [] C;
     C = NULL;
 }
