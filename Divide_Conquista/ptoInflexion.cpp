@@ -41,13 +41,11 @@ int main()
     int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     int n = 9;
     int minimo = encontrarInflexion(arr, 0, n);
-    delete[] arr;
     std::cout << "El valor mínimo en el arreglo es: " << minimo << std::endl;
 
     int arr1[] = {10, 7, 2, 1, -2, 8, 9, 23, 35, 58};
     int n1 = 10;
     int minimo1 = encontrarInflexion(arr1, 0, n1);
-    delete[] arr1;
     std::cout << "El valor mínimo en el arreglo es: " << minimo1 << std::endl;
 
     return 0;
