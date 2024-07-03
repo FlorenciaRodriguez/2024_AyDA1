@@ -67,7 +67,7 @@ void mergeSort(T arr[], int left, int right)
 int main()
 {
     // int arr[] = {12, 11, 13, 5, 6, 7};
-    char arr[] = {'i', 'd', 'e', 'z', '6', 'a'};
+    char arr[] = {'i', 'd', 'e', 'z', '6', 'a'}; // no es necesario delete si se inicializa de esta forma
     int arr_size = 6;
 
     std::cout << "Arreglo original: ";
@@ -77,8 +77,6 @@ int main()
 
     std::cout << "Arreglo ordenado: ";
     mostrarArreglo(arr, arr_size);
-
-    delete [] arr;
 
     return 0;
 }
