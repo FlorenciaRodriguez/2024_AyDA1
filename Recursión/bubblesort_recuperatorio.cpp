@@ -3,7 +3,7 @@
 template<typename T>
 void bubbleSortRecursivo(T arr[], int n) {
     // Caso base: Si el tamaño del arreglo es 1, ya está ordenado
-    if (n == 1) {
+    if (n <= 1) {
         return;
     }
 
@@ -24,7 +24,7 @@ void bubbleSort(T arr[], int n) {
 
 
 int main() {
-    char arr[] = {'64', '34', '25', 'a', '22', '11', '90'};
+    char arr[] = {'6', '3', '2', 'a', '5', '1', '9'};
     int n = 7;
 
     std::cout << "Arreglo original: ";
