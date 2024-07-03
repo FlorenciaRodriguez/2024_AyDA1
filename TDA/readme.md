@@ -12,7 +12,7 @@ Formalmente, un TDA es un modelo matemático con una serie de operaciones defini
 
 Una vez definido un TDA, éste se puede utilizar como si fuese un tipo de dato primitivo, sin preocuparse por cual sea su implementación.
 
-A grandes rasgos, tenemos dos tipos de TDAs, los TDAs simples, como los tipos primitivos, y los TDAs contenedores, como por ejemplo las colecciones, listas, filas, arreglos, árboles.
+A grandes rasgos, tenemos dos tipos de TDA, los TDA simples, como los tipos primitivos, y los TDA contenedores, como por ejemplo las colecciones, listas, filas, arreglos, árboles.
 
 Un TDA debe tener pocas operaciones, bien definidas y precisas. Se debe fijar si son contenedores o simples; el tamaño (size).
 
@@ -46,8 +46,7 @@ Consiste en determinar como hay que escribir las operaciones de un TDA, dando el
 
 El tipo entero se puede especificar sintácticamente, enumerando las siguientes operaciones:
 
-´´´
-
+```
 + : entero x entero -> entero
 
 - : entero x entero -> entero
@@ -55,7 +54,8 @@ El tipo entero se puede especificar sintácticamente, enumerando las siguientes 
 > : entero x entero -> boolean
 
 abs: entero -> entero
-´´´
+```
+
 ### Especificación semántica de un TDA
 
 Para un TDA se dan definiciones para llegar a su implementación. Hay tres maneras de definir un TDA:
