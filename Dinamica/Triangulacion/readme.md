@@ -271,8 +271,8 @@ double Poligono::costoTriangulacion() const
 
 Puntos para tener en cuenta al elegir la implementación:
 
-- El getDistancia tiene operaciones aritméticas complejas, como la raíz cuadrada y la potencia. Pueden no ser del orden constante. En ese caso sería mejor la matriz.
+- El getDistancia tiene operaciones aritméticas complejas, como la raíz cuadrada y la potencia. Pueden no ser del orden constante. En ese caso sería podría ser la matriz.
   
 - Al tener la matriz, no tenemos el costo espacial de los objetos de la clase Punto, p<sub>i</sub>, p<sub>k</sub> y p<sub>s</sub>, pero caemos en un costo espacial de almacenamiento de la matriz.
 
-Se recomienda incluir métricas para medir la cantidad de operaciones y los timepos de ejecución.
+Hay más cuestiones para analizar. Se recomienda pensarlas segpun todo lo visto en la materia y además, incluir métricas para medir la cantidad de operaciones, los timepos de ejecución, etc..
