@@ -7,8 +7,6 @@ Dados los vértices de un polígono convexo se trata de seleccionar un conjunto 
 
 Utilidad: se puede emplear para sombrear objetos tridimensionales en una imagen virtual (bidimensional).
 
-// poner una imagen que sea mas distinta de la de lal lado
-
 ![Posibles triangulaciones para un polígono P](img/img1.png)
 
 - Tenemos un polígono P definido como un conjunto de N vértices ordenados en sentido antihorario P = <v<sub>0</sub>, v<sub>1</sub>, \... , v<sub>n-1</sub>>
