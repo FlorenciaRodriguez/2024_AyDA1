@@ -36,7 +36,7 @@ c) Para algún k entre 2 y s-3, tomar el vértice v<sub>i+k</sub> y formar un tr
 
 Por tanto, si denotamos por C<sub>i,s</sub> el coste de la triangulación S<sub>i,s</sub>, se obtiene la siguiente formula: 
 
-C<sub>i,s</sub>= min<sub>1≤k≤s−2</sub>C<sub>i,k+1</sub> +{ C<sub>i+k,s-k</sub> +D(v<sub>i</sub> ,v<sub>i+k</sub>) +D(v<sub>i+k</sub> ,v<sub>i+s-1</sub>)}
+C<sub>i,s</sub>= min<sub>1≤k≤s−2</sub> {C<sub>i,k+1</sub> + C<sub>i+k,s-k</sub> +D(v<sub>i</sub> ,v<sub>i+k</sub>) +D(v<sub>i+k</sub> ,v<sub>i+s-1</sub>)}
 para 0≤i≤N-1, 4≤s≤N; 
 
 donde: D(v<sub>p</sub>,v<sub>q</sub>) es la longitud de la cuerda entre los vértices v<sub>p</sub> y v<sub>q</sub>
