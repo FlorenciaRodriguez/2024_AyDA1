@@ -1,5 +1,5 @@
 #include <iostream>
-#include "mostrara_rreglo.h"
+#include "mostrar_arreglo.h"
 
 template <typename T>
 int indiceParticion(T arr[], int ini, int fin)
@@ -41,7 +41,6 @@ int main()
     std::cout << "Arreglo ordenado por QuickSort: ";
     mostrarArreglo(arr, n);
 
-    delete[] arr;
 
     return 0;
 }
