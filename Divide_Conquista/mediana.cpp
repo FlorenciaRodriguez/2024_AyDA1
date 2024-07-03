@@ -52,10 +52,6 @@ int main()
 
     std::cout << "La mediana de los dos arreglos es: " << median1 << std::endl;
     
-    delete[] arr1;
-    delete[] arr2;
-    delete[] arr3;
-    delete[] arr4;
 
     return 0;
 }
