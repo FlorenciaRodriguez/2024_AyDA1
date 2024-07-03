@@ -9,7 +9,7 @@ También se puede hacer una secuencia enlzada de nodos, insertando y borrando el
 
 ## Especificación formal
 
-´´´
+```
 CLASS Pila [Elemento]
 BASIC CONSTRUCTORS inicPila, apilar
 EFFECTIVE
@@ -28,4 +28,4 @@ vaciaPila (apilar (p,e) ) = False
 topePila (apilar (p, e) ) = e
 desapilar (apilar (p, e)) = p
 END-CLASS
-´´´
+```
