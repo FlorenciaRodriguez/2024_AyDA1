@@ -20,7 +20,7 @@ Respecto a la estructura, antes de analizar si la elegida es adecuada o no, hay 
 
 ## Especificaciones algebraicas
 
-El álgebra tienen una representación y un conjunto de operaciones que trabajan sobre esa representación; eso hace que el álgebra sea similar al TDA. Para los TDAs usamos álgebras heterogeneas, las cuales nos sirven para las relaciones con otros TDAs.
+El álgebra tiene una representación y un conjunto de operaciones que trabajan sobre esa representación; eso hace que sea similar a TDA. Para los TDAs usamos álgebras heterogeneas, las cuales nos sirven para las relaciones con otros TDA.
 
 Una especificación formal da el _nombre_ del tipo junto con el _dominio_ donde tomarán valores las entidades del TDA, la _sintaxis_ (conjunto de operaciones del tipo, operaciones o funciones que tienen un dominio y una imagen) y la _semántica_ (el comportamiento, definido a tráves de fórmulas). La semántica se describe por medio de axiomas: lógica de predicado de primer orden, recursividad.
 
