@@ -47,6 +47,7 @@ int main()
     // La subsecuencia de mayor suma es [4, -1, 2, 1] con una suma de 6.
 
     std::cout << "La suma de la subsecuencia de mayor suma es: " << max_sum << std::endl;
+    delete [] arr;
 
     return 0;
 }
