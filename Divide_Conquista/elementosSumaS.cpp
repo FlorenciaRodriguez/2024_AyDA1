@@ -52,11 +52,9 @@ bool existenElementosSumaS(int *arr, int n, int s)
 
 int main()
 {
-    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9}; // Cuando se inicializa de esta forma no es necesario eliminarlo con delete
     int n = 9;
     int s = 7; // suma deseada
     bool buscar = existenElementosSumaS(arr, n, s);
-    delete[] arr;
-
     return 0;
 }
