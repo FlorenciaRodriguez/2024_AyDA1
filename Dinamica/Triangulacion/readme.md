@@ -3,7 +3,7 @@
 [Explicación previa](https://github.com/FlorenciaRodriguez/2024_AyDA1/tree/main/Dinamica#readme)
 
 
-Dados los vértices de un polígono convexo se trata de seleccionar un conjunto de cuerdas (líneas entre vértices no adyacentes) de modo que ningún par de cuerdas se cruce entre sí y que todo el polígono quede dividido en triángulos. Además, la longitud total de las cuerdas debe ser mínima (triangulación minimal).
+Dados los vértices de un polígono convexo se trata de seleccionar un conjunto de diagnoales (líneas entre vértices no adyacentes) de modo que ningún par de diagonales se cruce entre sí y que todo el polígono quede dividido en triángulos. Además, la longitud total de las diagonales debe ser mínima (triangulación minimal).
 
 Utilidad: se puede emplear para sombrear objetos tridimensionales en una imagen virtual (bidimensional).
 
