@@ -1,29 +1,28 @@
-// Pila_H
 #ifndef Pila_H
 #define Pila_H
-
+template <typename T>
 class Pila
 {
 public:
     Pila();
-    void apilar(int element);
+    virtual ~Pila();
+    void apilar(const T &element);
     void desapilar();
-    int getTope() const;
+    T getTope() const;
     bool esVacia() const;
     int getCantidad() const;
+    Pila &operator=(const Pila &otro);
 
 private:
+    void vaciar();
     int capacidad;
-    // int *tope;
     int cantElementos;
     struct Nodo
     {
-        int elemento;
+        T elemento;
         Nodo *siguiente;
     };
     Nodo *tope;
 };
-
-#include "Pila.cpp"
 
 #endif // Pila_H
