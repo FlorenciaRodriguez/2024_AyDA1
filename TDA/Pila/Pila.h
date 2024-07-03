@@ -5,7 +5,7 @@ class Pila
 {
 public:
     Pila();
-    ~Pila();
+    virtual ~Pila();
     void apilar(const T &element);
     void desapilar();
     T getTope() const;
