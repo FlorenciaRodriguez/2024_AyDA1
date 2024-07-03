@@ -11,7 +11,7 @@ Pila<T>::Pila()
 template <typename T>
 void Pila<T>::vaciar()
 {
-    while (!esVacia())
+    while (tope!= NULL && !esVacia())
         desapilar();
 }
 template <typename T>
@@ -43,7 +43,7 @@ void Pila<T>::desapilar()
     delete temp;
 }
 template <typename T>
-T Pila<T>::getTope() const
+const T& Pila<T>::getTope() const
 {
     assert(!esVacia());
     return tope->elemento;
@@ -59,7 +59,7 @@ int Pila<T>::getCantidad() const
     return cantElementos;
 }
 template <typename T>
-Pila<T> &Pila<T>::operator=(const Pila<T> &otro)
+Pila<T>& Pila<T>::operator=(const Pila<T> &otro)
 {
     Nodo *aux = otro.tope;
     Nodo *ultimo = NULL;
